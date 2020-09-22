@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link th:href="@{/css/index.css}" rel="stylesheet" type="text/css">
+<title>hello</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>아이디</th>
+				<th>비밀번호</th>
+				<th>이메일</th>
+				<th>전화번호</th>
+				<th>작성자</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="member : ${memberInfo}">
+				<td th:text="${member.userid}"></td>
+				<td th:text="${member.password}"></td>
+				<td th:text="${member.email}"></td>
+				<td th:text="${member.phonenumber}"></td>
+				<td th:text="${#calendars.format(member.signdate,'yyyy-MM-dd')}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
